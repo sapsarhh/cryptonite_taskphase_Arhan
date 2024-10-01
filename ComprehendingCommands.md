@@ -5,3 +5,4 @@ the module told me to read the contents of the flag file so I used the cat comma
 ## The commands used and the Result obtained:
 hacker@commands~cat-not-the-pet-but-the-command:~$ cat flag
 pwn.college{oEkX_1qyynT9EgfaKRtpttxJBUb.dFzN1QDL5AjN0czW}
+watched the following video to get more information on the cat command: https://www.youtube.com/watch?v=z3nJlyrJYW4&ab_channel=LearnLinuxTV
