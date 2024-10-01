@@ -7,7 +7,7 @@ Incorrect...
 You are not currently in the /var/lib/apt/lists directory.
 Please use the `cd` utility to change directory appropriately.
 So, by using the cd command I changed my directory to the directory given by the console/terminal and then invoked the program.
-## Code and Output recieved:
+## Code and Output recieved
 cd /var/lib/apt/lists
 hacker@paths~position-yet-elsewhere:/var/lib/apt/lists$ /challenge/run
 Correct!!!
