@@ -5,11 +5,13 @@ But now there are other ways of calling a relative path by using ., .. or even .
 for example challenge/run refers to the same ./challenge/run
 in this module we have to refer to the relative path by using the . to refer to the current directory.
 hence firstly I change my directory to / by using cd / 
-then inside i use a little trial and error and type /challenge/run but the terminal tells me this is incorrect for the specific module as "This challenge must be called with a relative path that explicitly starts with a `.`!"
-then I know that I have to start with . so I try the command ./challenge/run to invoke the file by using that explicit relative path and it works.
-## Commands and the Result Obtained:
+then by using a little trial and error and type /challenge/run but the terminal tells me this is incorrect for the specific module as "This challenge must be called with a relative path that explicitly starts with a `.`!"
+then I know that I have to start with a . so I try the command ./challenge/run to invoke the file by using that explicit relative path and it works.
+~~~
+bash
  ./challenge/run
 Correct!!!
 ./challenge/run is a relative path, invoked from the right directory!
 Here is your flag:
 pwn.college{wwhjNkHRUw59WT7AB5cw_gbsNpd.dBTN1QDL5AjN0czW}
+~~~
