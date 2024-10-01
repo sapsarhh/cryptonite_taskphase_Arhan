@@ -38,3 +38,53 @@ bash
 hacker@dojo:~$ grep SEARCH_STRING /path/to/file
 hacker@commands~grepping-for-a-needle-in-a-haystack:~$ grep pwn.college /challenge/data.txt pwn.college
 /challenge/data.txt:pwn.college{4DhXVBM9Ak9fJgQt-h721KOUGOa.ddTM4QDL5AjN0czW}
+~~~
+
+## listing files
+in this module, I learnt about the ls command which basically lists all the files inside some directory.
+As the module said it had renamed /challenge/run with some random name.
+I have to run the /challenge command and list all the files inside it to find the new name of the file.
+To do this task firstly I changed my directory to /challenge as instructed in the module using the cd command.
+Then I try and read all the files inside the cwd which gives me the following result ----->  27875-renamed-run-20593  DESCRIPTION.md
+Now, I didnt understand the result completely as I thought it would just provide me with the list of the files which might or might not contain the flag but no that was not the case.
+Then I tried reading the Description.md file using the cat command but that was useless as it just gave me the following output:
+
+~~~
+bash
+hacker@commands~listing-files:/challenge$ cat DESCRIPTION.md
+So far, we've told you which files to interact with.
+But directories can have lots of files (and other directories) inside them, and we won't always be here to tell you their names.
+You'll need to learn to **l**i**s**t their contents using the `ls` command!
+
+`ls` will list files in all the directories provided to it as arguments, and in the current directory if no arguments are provided.
+Observe:
+
+```console
+hacker@dojo:~$ ls /challenge
+run
+hacker@dojo:~$ ls
+Desktop    Downloads  Pictures  Templates
+Documents  Music      Public    Videos
+hacker@dojo:~$ ls /home/hacker
+Desktop    Downloads  Pictures  Templates
+Documents  Music      Public    Videos
+hacker@dojo:~$
+```
+
+In this challenge, we've named `/challenge/run` with some random name!
+List the files in `/challenge` to find it.
+~~~
+
+After this, I thought of running the renamed file which I got above when I used the ls command but I wasnt sure on how to do so.
+So I used a reference video on youtube on how to open a file -----> https://www.youtube.com/watch?v=-ULcwdaEegY&ab_channel=SagarS
+I realized after watching the video that I just had to open it using the explicit relative path method which was specifically placing a . before referring to a file and opening it through /
+Then I opened the file using this method and voila it worked and gave me the flag.
+
+~~~
+bash
+hacker@commands~listing-files:/challenge$ ./27875-renamed-run-20593
+Yahaha, you found me! Here is your flag:
+pwn.college{YlkKAWVF1oEoqNmsuKoqDMu9GQo.dhjM4QDL5AjN0czW}
+~~~
+
+
