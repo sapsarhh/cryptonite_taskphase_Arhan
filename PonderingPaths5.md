@@ -1,7 +1,7 @@
 # Pondering Paths 
 ## Position Yet Elsewhere
 Similar to the last 2 modules, in this one I had to change the directory again as I was not in the correct directory, hence when I try to invoke the /challenge/run file it gives me an error but tells me the correct directory which I need to change to.
-Recieved this specific output:
+Recieved this specific output
 So, by using the cd command I changed my directory to the directory given by the console/terminal and then invoked the program.
 As you can see firstly I changed my directory to /var/lib/apt/lists and then invoked the file which gave me the flag.
 ~~~bash
