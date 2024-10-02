@@ -446,4 +446,21 @@ CONGRATULATIONS! Your perserverence has paid off, and you have found the flag!
 It is: pwn.college{4fIT53MyflpCpP6nZojUAai3jr2.dljM4QDL5AjN0czW}
 ~~~
 
+## making directories
+This module taught me on how to make a directory using the mkdir command and then successively files can be put inside it using the touch command which I learnt earlier.
+The module instructed me that I had to create a /tmp/pwn directory using the mkdir command.
+Then I had to change my directory to /tmp/pwn which I just created using the cd command.
+Then once my directory was changed I had to create a file inside it using the touch command.
+I created the file college in it.
+Then I ran /challenge/run to make sure that the directory and the file were created, and the flag was obtained.
 
+~~~
+bash
+hacker@commands~making-directories:~$ mkdir /tmp/pwn
+hacker@commands~making-directories:~$ cd /tmp/pwn
+hacker@commands~making-directories:/tmp/pwn$ touch college
+hacker@commands~making-directories:/tmp/pwn$ /challenge/run
+Success! Here is your flag:
+pwn.college{AIFNzTluQea7xW_WSfx-d5eS0xs.dFzM4QDL5AjN0czW}
+hacker@commands~making-directories:/tmp/pwn$
+~~~
