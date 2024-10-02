@@ -118,3 +118,29 @@ Excellent removal. Here is your reward:
 pwn.college{MI38Sct3HkLblHNcA9I8NONzIYS.dZTOwUDL5AjN0czW}
 ~~~
 
+## hidden files
+This module told me about a very important property or characteristic of linux, which is that the ls command which is used to list all the files, does not show the hidden files by default.
+A hidden file can be created by using the touch command and by using a . infront of the file name.
+For example lets say I type touch college, it would create a file with the name of college which wont be hidden and will be simply displayed by using the ls command.
+But if I type touch .college, then it would create a hidden file which wont show up by simply using the ls command and some addition is necessary.
+The addition is that -a has to be added in front of the ls command to display all the files including the hidden ones.
+Now after learning this I went back to the module and it had instructed me to that a hidden file has been created inside of the directory ./
+so, firstly I changed my directory by using the cd command to ./
+Once I was in the cwd, I used the ls -a command to display all the files including the hidden ones.
+This gave me a file with the name of .flag-11031127937, and then I used the cat command to read its contents.
+This gave me the flag.
+
+~~~
+bash
+ls
+Desktop  delete_me  e
+hacker@commands~hidden-files:~$ cd /.
+hacker@commands~hidden-files:/$ ls -a
+.   .dockerenv         bin   challenge  etc   lib    lib64   media  nix  proc  run   srv  tmp  var
+..  .flag-11031127937  boot  dev        home  lib32  libx32  mnt    opt  root  sbin  sys  usr
+hacker@commands~hidden-files:/$ cat .flag-11031127937
+pwn.college{s8JZErCy2HboJJizefWUszoIFsM.dBTN4QDL5AjN0czW}
+~~~
+
+
+
