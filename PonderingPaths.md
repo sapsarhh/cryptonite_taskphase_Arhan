@@ -142,6 +142,7 @@ hacker@paths~implicit-relative-path:/challenge$
 
 ## home sweet home
 used the following video -----> https://www.youtube.com/watch?v=Gexu9M7p5aU&ab_channel=ProgrammingKnowledge as a reference because I did not know how to pass arguments. watching that video I then learnt how to do it and what is the specific command for it.
+At first I was only running the command /challenge/run ~/ which was working but did not give me any result as it didnt have any argument, adding a letter in front of it acted as an argument hence that worked and gave me a flag.
 ~~~
 bash
 /challenge/run ~/e
