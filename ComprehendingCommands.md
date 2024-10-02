@@ -517,5 +517,30 @@ hacker@commands~finding-files:/$ cat ./usr/share/doc/netcat-openbsd/examples/fla
 This is how I obtained the flag for this module.
 
 ## linking files
+this was a particularly weird module as it made me think quite a lot, but a good one as well.
+this module basically taught me about hard and soft links aka symbolic links.
+also reffered to the following link to understand more about both the type of links -----> https://www.geeksforgeeks.org/difference-between-hard-link-and-soft-link/
+the basic difference between the two is that hard link acts as a copy of some file and has access to that data.
+whilst soft link acts as a reference to the orignal data file and doesnt access it, only refers to it like that similar to that of a pointer.
+proceeding into the module it educates me about the -s argument which can be used with the ln command to create symbolic links to refer to the original data file.
+the ln command is basically used to establish a link between two files.
+then the module gave me the sample syntax or method to use the ln -s command to establish a link.
+Also learnt about the file command, which basically returns the file type of a given file.
+Now proceeding to the question, the module instructs me that the command /challenge/flag would read out /home/hacker/not-the-flag and not the flag, hence I have to change the symlink from /home/hacker/not-the-flag to /flag to read the contents of /flag to obtain the flag.
+Now firstly by reading the module I got to know about the syntax which was used to refer to some files basically using symlinks, so I did that inside the terminal and used the command ln -s /flag /home/hacker/not-the-flag after changing my directory to / by using the cd command.
+But to my surprise, the ln -s command gave me an error link '/flag': File exists and I got confused and didnt know how to proceed further as it would just not change the symlink from /home/hacker/not-the-flag to /flag.
+After some discussion with a friend(who is not in the task phase but has information regarding linux), I realized that I had to use the rm command to remove the file permanently so that it wouldnt give me the error that the file already exists. after using the command  rm /home/hacker/not-the-flag, the file was removed and then I could run the above command error free and then finally invoked the catflag program and it gave me the flag.
+~~~
+bash
+hacker@commands~linking-files:~$ cd /
+hacker@commands~linking-files:/$ ln -s /flag /home/hacker/not-the-flag
+ln: failed to create symbolic link '/home/hacker/not-the-flag': File exists
+hacker@commands~linking-files:/$ rm /home/hacker/not-the-flag
+hacker@commands~linking-files:/$ ln -s /flag /home/hacker/not-the-flag
+hacker@commands~linking-files:/$ /challenge/catflag
+About to read out the /home/hacker/not-the-flag file!
+pwn.college{YomfbUKlgMZg1ErJE6eWITJyIrc.dlTM1UDL5AjN0czW}
+~~~
+
 
 
