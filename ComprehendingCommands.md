@@ -464,3 +464,55 @@ Success! Here is your flag:
 pwn.college{AIFNzTluQea7xW_WSfx-d5eS0xs.dFzM4QDL5AjN0czW}
 hacker@commands~making-directories:/tmp/pwn$
 ~~~
+
+
+## finding files
+In this module I learnt about a new command find which can search and find a specific file inside of a directory or in the home directory.
+Firstly I just put changed my directory to / by using cd and then typed in find, which was the worst mistake of my life, as it had like millions of files and the command terminal kept running and showed me new files like how a language does when you run an infinite loop.
+I had to exit the terminal and start again due to this problem which I had created.
+Now again in the terminal, I knew that I could not search in the whole directory so I tried using find flag but it gave me an error that flag does not exist.
+Then I read the instructions of the module again as I had to use some specific command to find flag but after trying some trial and error I couldnt figure it out.
+Then I reffered to the following video for help ------> https://www.youtube.com/watch?v=oPdFGUrq-XQ&ab_channel=GeeksforGeeks
+Which made me realize that in the changed directory / I had to run this command to find the flag (find ./ -type f -name flag)
+This gave me several flag files which had their permission/access denied, but there was only one which could be accessed.
+I used the cat command on that file and it gave me the flag.
+~~~
+bash
+hacker@commands~finding-files:~$ cd /
+hacker@commands~finding-files:/$ find ./ -type f -name flag
+find: ‘./root’: Permission denied
+find: ‘./proc/1/task/1/fd’: Permission denied
+find: ‘./proc/1/task/1/fdinfo’: Permission denied
+find: ‘./proc/1/task/1/ns’: Permission denied
+find: ‘./proc/1/fd’: Permission denied
+find: ‘./proc/1/map_files’: Permission denied
+find: ‘./proc/1/fdinfo’: Permission denied
+find: ‘./proc/1/ns’: Permission denied
+find: ‘./proc/7/task/7/fd’: Permission denied
+find: ‘./proc/7/task/7/fdinfo’: Permission denied
+find: ‘./proc/7/task/7/ns’: Permission denied
+find: ‘./proc/7/fd’: Permission denied
+find: ‘./proc/7/map_files’: Permission denied
+find: ‘./proc/7/fdinfo’: Permission denied
+find: ‘./proc/7/ns’: Permission denied
+find: ‘./var/log/private’: Permission denied
+find: ‘./var/log/apache2’: Permission denied
+find: ‘./var/log/mysql’: Permission denied
+find: ‘./var/cache/ldconfig’: Permission denied
+find: ‘./var/cache/apt/archives/partial’: Permission denied
+find: ‘./var/cache/private’: Permission denied
+find: ‘./var/lib/apt/lists/partial’: Permission denied
+find: ‘./var/lib/php/sessions’: Permission denied
+find: ‘./var/lib/mysql-files’: Permission denied
+find: ‘./var/lib/private’: Permission denied
+find: ‘./var/lib/mysql-keyring’: Permission denied
+find: ‘./var/lib/mysql’: Permission denied
+find: ‘./tmp/tmp.XvrUsDZh8M’: Permission denied
+find: ‘./run/mysqld’: Permission denied
+find: ‘./run/sudo’: Permission denied
+find: ‘./etc/ssl/private’: Permission denied
+./usr/share/doc/netcat-openbsd/examples/flag
+hacker@commands~finding-files:/$ cat ./usr/share/doc/netcat-openbsd/examples/flag
+~~~
+This is how I obtained the flag for this module.
+
