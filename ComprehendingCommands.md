@@ -106,4 +106,15 @@ hacker@commands~touching-files:/tmp$ ls
 bin  college  hsperfdata_root  pwn  tmp.XvrUsDZh8M
 ~~~
 
+## removing files
+This module in contrary to the last module, taught me how to remove a file from a directory using the rm command.
+The module instructed me that there is delete_me file inside the home directory and I need to remove it using the rm command and then run the /challenge/check command to check if it was successfully removed or not.
+So I just did that, firstly removed the file then run the command and it gave me the flag.
+~~~
+bash
+hacker@commands~removing-files:~$ rm delete_me
+hacker@commands~removing-files:~$ /challenge/check
+Excellent removal. Here is your reward:
+pwn.college{MI38Sct3HkLblHNcA9I8NONzIYS.dZTOwUDL5AjN0czW}
+~~~
 
