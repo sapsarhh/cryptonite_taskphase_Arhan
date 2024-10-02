@@ -87,4 +87,23 @@ Yahaha, you found me! Here is your flag:
 pwn.college{YlkKAWVF1oEoqNmsuKoqDMu9GQo.dhjM4QDL5AjN0czW}
 ~~~
 
+## touching files
+In this specifc module, I learnt how to touch a file or in other words basically adding a file inside of a directory using the touch command.
+The sample command decleration can be found inside the code below.
+The module instructed me to create  two files inside of the tmp directory, hence I simply changed my directory to tmp by using the cd command.
+Then once my directory was changed I created the two files using the touch command, pwn and college.
+Once those were created I ran the /challenge/run and it gave me the flag.
+Also I used the ls command once I obtained the flag and it showed me both the files created by me hence they were successfully created.
+~~~
+bash
+hacker@commands~touching-files:~$ cd /tmp
+hacker@commands~touching-files:/tmp$ touch pwn
+hacker@commands~touching-files:/tmp$ touch college
+hacker@commands~touching-files:/tmp$ /challenge/run
+Success! Here is your flag:
+pwn.college{wmr_lq4jGDt1fsfV69Mph_BGct0.dBzM4QDL5AjN0czW}
+hacker@commands~touching-files:/tmp$ ls
+bin  college  hsperfdata_root  pwn  tmp.XvrUsDZh8M
+~~~
+
 
