@@ -152,4 +152,12 @@ Correct usage! Your flag: pwn.college{MRIueURmPmfaEyzEFoC-HKn3pVk.dRTM4QDL5AjN0c
 As I realized that the flag would only print if the num is 345 so I did that by referring the printfile to /challenge/challenge directory.
 
 
+## Searching Manuals
+As this I learnt that some symbols on the keyboard like / ? etc can be used to search within a manual.
+With that information in mind I tried the question as it told me to search within the challenge manual.
+After using the man challenge command, luckily the first thing I did was to use the / symbol and search for flag inside the file and the first result I found was --odz  This argument will give you the flag, so I basically invoked the file and that was it.
+/challenge/challenge --odz
+Initializing...
+Correct usage! Your flag: pwn.college{4Rei-VwuZ3XAWEZxR7-JSzk8fsi.dVTM4QDL5AjN0czW}
+
 
