@@ -23,3 +23,26 @@ pwn.college{I9T0_MEoXLGureKJ6lcbnVlD1I1.dRjM5QDL5AjN0czW}
 ~~~
 
 ## Learning Complex Usage
+In this module, I learnt about the --printfile argument which can be used to read a specific file's contents.
+It is different from the cat command as printfile is an argument.
+Then as the module instructed me the I cd'ed into the / directory.
+But I did commit some mistakes before I got the flag as firstly I read the description.md file which gave me the details of the module itself.
+then /challenge/challenge --printfile /challenge/flag but that didnt work out.
+But after that I realized why this was wrong as I was already looking in the /challenge directory so I didnt have to refer to it again whilst using the printfile argument.
+Hence I used the following command and got the flag /challenge/challenge --printfile /flag
+~~~
+bash
+ cd /
+/challenge/challenge --printfile /challenge/flag
+Correct argument! Here is the /challenge/flag file:
+cat: /challenge/flag: No such file or directory
+~~~
+This above was the error which i encountered.
+~~~
+bash
+challenge/challenge --printfile /flag
+Correct argument! Here is the /flag file:
+pwn.college{MLDGmsLl1wvc1iO-LLsI8KjULHd.dVjM5QDL5AjN0czW}
+~~~
+
+
