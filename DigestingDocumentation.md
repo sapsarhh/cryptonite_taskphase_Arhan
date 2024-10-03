@@ -191,5 +191,7 @@ hacker@man~helpful-programs:/$ /challenge/challenge -g 428
 Correct usage! Your flag: pwn.college{4hj_mdR28_SRNflFEag3zQuVvi9.ddjM4QDL5AjN0czW}
 ~~~
 
+## Help for Builtins
+learnt about builtins 
 
 
