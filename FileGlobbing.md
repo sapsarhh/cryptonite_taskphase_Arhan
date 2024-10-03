@@ -30,3 +30,35 @@ pwn.college{EMu0tqXOXutz4OgQ97halij7LAZ.dFjM4QDL5AjN0czW}
 ~~~
 I did some MySQL in my 12th grade and I remember sql also contains a like command which can act as a wildcard in the same exact way the symbols are working here.
 
+## Matching with ?
+Well similiar to the above question, this one also had the concept of globbing just with the symbol ? instead of *
+also had a different requirement which can be seen in the commands below:
+~~~
+bash
+hacker@globbing~matching-with-:~$ cd /?ha??enge
+hacker@globbing~matching-with-:/challenge$ /challenge/run
+You ran me with the working directory of /challenge! Here is your flag:
+pwn.college{Yna2FpuusDOJAQPDeehiiWi1gI1.dJjM4QDL5AjN0czW}
+~~~
+
+
+## Matching with []
+This module taught me how to glob with [], like I can place some letters inside the square brackets and it would show the result with the letters matching with those files.
+so like the previous modules I did the same here in terms of globbing.
+~~~
+bash
+file_[bash]
+ssh-entrypoint: file_a: command not found
+hacker@globbing~matching-with-:/challenge/files$ /file_[bash]
+ssh-entrypoint: /file_[bash]: No such file or directory
+hacker@globbing~matching-with-:/challenge/files$ /challenge/run file_[bash]
+You got it! Here is your flag!
+pwn.college{A0S46-3PKsg42mNURLzHWdLJozY.dNjM4QDL5AjN0czW}
+~~~
+
+## Matching Paths with []
+
+
+
+
+
