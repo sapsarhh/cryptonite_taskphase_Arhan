@@ -192,6 +192,38 @@ Correct usage! Your flag: pwn.college{4hj_mdR28_SRNflFEag3zQuVvi9.ddjM4QDL5AjN0c
 ~~~
 
 ## Help for Builtins
-learnt about builtins 
+learnt about builtins which arent man programs but are built in the shell itself, these are invoked in a way similar to that of commands but the shell handles these builtins internally and doesnt launch other programs.
+So in this module I was required to open a builtin with the help command, challenge was supposed to be open with the help command.
+~~~
+bash
+hacker@man~help-for-builtins:~$ help challenge
+challenge: challenge [--fortune] [--version] [--secret SECRET]
+    This builtin command will read you the flag, given the right arguments!
+
+    Options:
+      --fortune         display a fortune
+      --version         display the version
+      --secret VALUE    prints the flag, if VALUE is correct
+
+    You must be sure to provide the right value to --secret. That value
+    is "QD39iCUN".
+hacker@man~help-for-builtins:~$ cd /
+hacker@man~help-for-builtins:/$ /challenge/challenge --secret VALUE QD39iCUN
+ssh-entrypoint: /challenge/challenge: No such file or directory
+hacker@man~help-for-builtins:/$ /challenge/challenge --secretQD39iCUN
+ssh-entrypoint: /challenge/challenge: No such file or directory
+hacker@man~help-for-builtins:/$ /challenge --secret QD39iCUN
+ssh-entrypoint: /challenge: Is a directory
+hacker@man~help-for-builtins:/$ /challenge --fortune
+ssh-entrypoint: /challenge: Is a directory
+hacker@man~help-for-builtins:/$ challenge --fortune
+Sorry for mailing this article, I've obviously made a typo (168!=186)
+that's the price for being up all night and doing some "quick"
+checks before you go to bed ....
+                -- Herbert Rosmanith <herp@wildsau.idv.uni-linz.ac.at>
+hacker@man~help-for-builtins:/$ challenge --secret QD39iCUN
+Correct! Here is your flag!
+~~~
+as you can see above i tried some standard commands but it worked in the end because I just had to invoke the challenge file which was inside / directory.
 
 
