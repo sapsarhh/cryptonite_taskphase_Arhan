@@ -57,6 +57,30 @@ pwn.college{A0S46-3PKsg42mNURLzHWdLJozY.dNjM4QDL5AjN0czW}
 ~~~
 
 ## Matching Paths with []
+Module taught me how to match paths with [], similar to invoking a program.
+File paths can also be reffered to with [].
+As the question said I had to invoke /challenge/files through /challenge/run in a simple argument by using square brackets.
+So I did that by cding into the home/hacker file as challenge/files wasnt a part of /
+
+~~~
+bash
+hacker@globbing~matching-paths-with-:~$ cd /
+hacker@globbing~matching-paths-with-:/$ /challenge/run /challenge/files/file_[bash]
+Error: please run with a working directory of /home/hacker!
+hacker@globbing~matching-paths-with-:/$ ls
+bin   challenge  etc   home  lib32  libx32  mnt  opt   root  sbin  sys  usr
+boot  dev        flag  lib   lib64  media   nix  proc  run   srv   tmp  var
+hacker@globbing~matching-paths-with-:/$ cd /home/hacker
+hacker@globbing~matching-paths-with-:~$ ls
+Desktop  catflag  delete_me  e  file1  flag  new  not-the-flag
+hacker@globbing~matching-paths-with-:~$ /challenge/run /challenge/files/file_[bash]
+You got it! Here is your flag!
+pwn.college{AQqbcxO_oqwhi8nC__hf4YCoGX2.dRjM4QDL5AjN0czW}
+~~~
+
+## Mixing Globs
+
+
 
 
 
