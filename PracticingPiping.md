@@ -189,6 +189,116 @@ Here is your flag:
 pwn.college{cnsyJR8Gyh3Wfdg_vdB0PvJ8yQb.dBzN1QDL5AjN0czW}
 ~~~
 
+## Grepping Stored Result
+this module brought back memories with the grep command and how it used to search through some file using some given text like pwn.college to find the flag.
+So firstly in the question /challenge/run was to be redirected into data.txt and then data.txt was to be grepped to find the flag.
+~~~
+bash
+hacker@piping~grepping-stored-results:~$ /challenge/run > /tmp/data.txt
+[INFO] WELCOME! This challenge makes the following asks of you:
+[INFO] - the challenge will check that output is redirected to a specific file path : /tmp/data.txt
+[INFO] - the challenge will output a reward file if all the tests pass : /challenge/.data.txt
+
+[HYPE] ONWARDS TO GREATNESS!
+
+[INFO] This challenge will perform a bunch of checks.
+[INFO] If you pass these checks, you will receive the /challenge/.data.txt file.
+
+[TEST] You should have redirected my stdout to a file called /tmp/data.txt. Checking...
+
+[HINT] File descriptors are inherited from the parent, unless the FD_CLOEXEC is set by the parent on the file descriptor.
+[HINT] For security reasons, some programs, such as python, do this by default in certain cases. Be careful if you are
+[HINT] creating and trying to pass in FDs in python.
+
+[PASS] The file at the other end of my stdout looks okay!
+[PASS] Success! You have satisfied all execution requirements.
+hacker@piping~grepping-stored-results:~$ grep pwn.college /tmp/data.txt
+pwn.college{Q13nb-mRQHHin8B6ZMaqkIW0ygY.dhTM4QDL5AjN0czW}
+~~~
+As you can see I used pwn.college with the grep command to locate the flag.
+
+## Grepping Live Output
+Learnt about piping and how it can be used to remove the 'middleman'. Basically what that means is one can use the pipe operator to chain multiple commands together, some argument or text can be straight written into(redirected into) some file.
+In the question I was required to to pipe the input of /challenge/run and then find the flag by grepping.
+~~~
+bash
+hacker@piping~grepping-live-output:~$ grep pwn.college /challenge/run
+#!/opt/pwn.college/bash
+hacker@piping~grepping-live-output:~$ /challenge/run | grep pwn.college
+[INFO] WELCOME! This challenge makes the following asks of you:
+[INFO] - the challenge checks for a specific process at the other end of stdout : grep
+[INFO] - the challenge will output a reward file if all the tests pass : /challenge/.data.txt
+
+[HYPE] ONWARDS TO GREATNESS!
+
+[INFO] This challenge will perform a bunch of checks.
+[INFO] If you pass these checks, you will receive the /challenge/.data.txt file.
+
+[TEST] You should have redirected my stdout to another process. Checking...
+[TEST] Performing checks on that process!
+
+[INFO] The process' executable is /nix/store/xpq4yhadyhazkcsggmqd7rsgvxb3kjy4-gnugrep-3.11/bin/grep.
+[INFO] This might be different than expected because of symbolic links (for example, from /usr/bin/python to /usr/bin/python3 to /usr/bin/python3.8).
+[INFO] To pass the checks, the executable must be grep.
+
+[PASS] You have passed the checks on the process on the other end of my stdout!
+[PASS] Success! You have satisfied all execution requirements.
+pwn.college{Y_RB9GcMlcy97AJ4xfvBAk0oKE3.dlTM4QDL5AjN0czW}
+~~~
+
+
+## Grepping Errors
+In this program I learnt how to grep through errors directly using the pipe operator |
+Earlier I used the 2> operator and redirected the error into a file and then searched through it but in this question we do it directly by using piping.
+at first I tried to /challenge/run 2>&1 which simply redirected the error but didnt grep through it as the piping operator hadnt been used.
+Then I tried grepping in the same argument as the piping operator and it worked.
+~~~
+bash
+/challenge/run 2>&1
+[INFO] WELCOME! This challenge makes the following asks of you:
+[INFO] - the challenge checks for a specific process at the other end of stderr : grep
+[INFO] - the challenge will output a reward file if all the tests pass : /challenge/.data.txt
+
+[HYPE] ONWARDS TO GREATNESS!
+
+[INFO] This challenge will perform a bunch of checks.
+[INFO] If you pass these checks, you will receive the /challenge/.data.txt file.
+
+[TEST] You should have redirected my stderr to another process. Checking...
+
+[FAIL] You did not satisfy all the execution requirements.
+[FAIL] Specifically, you must fix the following issue:
+[FAIL]   stderr of this process does not appear to be a pipe!
+hacker@piping~grepping-errors:~$ /challenge/run 2>&1 | /challenge/data.txt
+ssh-entrypoint: /challenge/data.txt: No such file or directory
+[INFO] WELCOME! This challenge makes the following asks of you:
+[INFO] - the challenge checks for a specific process at the other end of stderr : grep
+[INFO] - the challenge will output a reward file if all the tests pass : /challenge/.data.txt
+
+
+ hacker@piping~grepping-errors:~$ /challenge/run 2>&1 | grep pwn.college
+[INFO] WELCOME! This challenge makes the following asks of you:
+[INFO] - the challenge checks for a specific process at the other end of stderr : grep
+[INFO] - the challenge will output a reward file if all the tests pass : /challenge/.data.txt
+
+[HYPE] ONWARDS TO GREATNESS!
+
+[INFO] This challenge will perform a bunch of checks.
+[INFO] If you pass these checks, you will receive the /challenge/.data.txt file.
+
+[TEST] You should have redirected my stderr to another process. Checking...
+[TEST] Performing checks on that process!
+
+[INFO] The process' executable is /nix/store/xpq4yhadyhazkcsggmqd7rsgvxb3kjy4-gnugrep-3.11/bin/grep.
+[INFO] This might be different than expected because of symbolic links (for example, from /usr/bin/python to /usr/bin/python3 to /usr/bin/python3.8).
+[INFO] To pass the checks, the executable must be grep.
+
+[PASS] You have passed the checks on the process on the other end of my stderr!
+[PASS] Success! You have satisfied all execution requirements.
+pwn.college{kL5fbxuU-g2pRJvK_9-9e6seWaK.dVDM5QDL5AjN0czW}
+
+
+
 
  
 
