@@ -100,6 +100,22 @@ pwn.college{QjmOkjO396msv86UCDP8AUALIrq.dVjM4QDL5AjN0czW}
 ~~~
 
 
+## Exclusionary globbing
+this module was for specifically excluding files in the file search process using globbing which contain some specific letters.
+square brackets [] operator is again used for this but here inside [] a ^ or ! has to be placed to exclude files.
+for example if there are 2 files already created with the name of kryptfun and kryptis
+and I pass the command krypt[!f]* or krypt[^f]* then only kryptis would be displayed as a result because anything that contains the letter f has been excluded.
+the challenge instructed me to cd into /challenge/files and then invoke /challenge/run and exclude anything that stars with p, w and n so I did that with [!pwn]* so I did that.
+~~~
+bash
+hacker@globbing~exclusionary-globbing:/challenge/files$ /challenge/run [^pwn]*
+You got it! Here is your flag!
+pwn.college{MQiTrn_xkQ7eorD1vAMv0IKwUjK.dZjM4QDL5AjN0czW}
+~~~
+
+
+
+
 
 
 
