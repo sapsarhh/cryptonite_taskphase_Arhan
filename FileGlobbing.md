@@ -79,8 +79,25 @@ pwn.college{AQqbcxO_oqwhi8nC__hf4YCoGX2.dRjM4QDL5AjN0czW}
 ~~~
 
 ## Mixing Globs
-
-
+As the module said that I had to invoke three file paths using the [] operator.
+first of all I tried to cd'ed into /challenge/files as the module instructed.
+then I mistakenly wrote /cep[]* which is of course wrong as cep is a file and not an absolute path.
+then i corrected it by just passing [cep]* as it is a file.
+The logic I used was that [cep] was for the initial letters of the files that were to be expanded and * was used for the rest of the variable letters. 
+~~~
+bash
+hacker@globbing~mixing-globs:/challenge/files$ /challenge/run/[cep]*
+ssh-entrypoint: /challenge/run/[cep]*: Not a directory
+hacker@globbing~mixing-globs:/challenge/files$ /challenge/run/[cep]
+ssh-entrypoint: /challenge/run/[cep]: Not a directory
+hacker@globbing~mixing-globs:/challenge/files$ /challenge/run [cep]
+Your expansion did not expand to the requested files (challenging, educational,
+pwning). Instead, it expanded to:
+[cep]
+hacker@globbing~mixing-globs:/challenge/files$ /challenge/run [cep]*
+You got it! Here is your flag!
+pwn.college{QjmOkjO396msv86UCDP8AUALIrq.dVjM4QDL5AjN0czW}
+~~~
 
 
 
