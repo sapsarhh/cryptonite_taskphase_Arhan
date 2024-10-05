@@ -137,7 +137,7 @@ hence I cd into the directory /
 /challenge/challenge --uemmfa NUM
 Incorrect usage! Please read the challenge man page!
 firstly I used the above commands and arguments but that didnt work.
-But after the following hit and trial the commands worked and I got the flag:
+But after the following hit and trial the commands worked and I got the flag as I didnt realized that I had to enter the actual number until I tried it:
 ~~~
 bash
 challenge --uemmfa NUM
@@ -153,7 +153,7 @@ As I realized that the flag would only print if the num is 345 so I did that by 
 
 
 ## Searching Manuals
-As this I learnt that some symbols on the keyboard like / ? etc can be used to search within a manual.
+In this module I learnt that some symbols on the keyboard like / ? etc can be used to search within a manual.
 With that information in mind I tried the question as it told me to search within the challenge manual.
 After using the man challenge command, luckily the first thing I did was to use the / symbol and search for flag inside the file and the first result I found was --odz  This argument will give you the flag, so I basically invoked the file and that was it.
 ~~~
@@ -161,6 +161,95 @@ After using the man challenge command, luckily the first thing I did was to use 
 Initializing...
 Correct usage! Your flag: pwn.college{4Rei-VwuZ3XAWEZxR7-JSzk8fsi.dVTM4QDL5AjN0czW}
 ~~~
+
+## Searching for Manuals
+In this module firstly I had to read and go through the man man page.
+If i invoke or run the above command then it would display to me the manual page for the man command.
+I ran the above command and searched through the manual page for something that would help me in running a command or an argument which would return me the flag.
+When I was going through the manual one thing which caught my eye was this specific argument:
+   ~~~
+
+   Main modes of operation
+       -f, --whatis
+              Equivalent to whatis.  Display a short description from the manual page, if available.  See whatis(1) for details.
+
+       -k, --apropos
+              Equivalent to apropos.  Search the short manual page descriptions for keywords and display any matches.  See apropos(1) for details.
+
+       -K, --global-apropos
+              Search for text in all manual pages.  This is a brute-force search, and is likely to take some time; if you can, you should specify a sec‐
+              tion to reduce the number of pages that need to be searched.  Search terms may be simple strings (the default), or regular expressions  if
+              the --regex option is used.
+~~~
+so in here I learnt that the -k argument can be used to display some info about some specific keywords or text.
+So by learning that I used displayed the manual of apropos and passed man apropos flag which displayed nothing useful, but then I tried man -k flag which did the trick.
+It displayed me the following data:
+~~~
+bash
+man -k flag
+dpkg-buildflags (1)  - returns build flags to use during package build
+Dpkg::BuildFlags (3perl) - query build flags
+fegetexceptflag (3)  - floating-point rounding and exception handling
+fesetexceptflag (3)  - floating-point rounding and exception handling
+hhzabvendj (1)       - print the flag!
+i386 (8)             - change reported architecture in new program environment and/or set personality flags
+ioctl_iflags (2)     - ioctl() operations for inode flags
+linux32 (1)          - change reported architecture in new program environment and/or set personality flags
+linux64 (1)          - change reported architecture in new program environment and/or set personality flags
+pcap-config (1)      - write libpcap compiler and linker flags to standard output
+security_compute_av_flags (3) - query the SELinux policy database in the kernel
+security_compute_av_flags_raw (3) - query the SELinux policy database in the kernel
+set_matchpathcon_flags (3) - set flags controlling the operation of matchpathcon or matchpathcon_index and configure the behaviour of validity checking a...
+set_matchpathcon_invalidcon (3) - set flags controlling the operation of matchpathcon or matchpathcon_index and configure the behaviour of validity check...
+set_matchpathcon_printf (3) - set flags controlling the operation of matchpathcon or matchpathcon_index and configure the behaviour of validity checking ...
+setarch (1)          - change reported architecture in new program environment and/or set personality flags
+setarch (8)          - change reported architecture in new program environment and/or set personality flags
+x86_64 (8)           - change reported architecture in new program environment and/or set personality flags
+~~~
+this made me realize that I had to go through the manual of hhzabvendj command and look for some kind of clues regarding the flag.
+Used the following command:
+~~~
+hacker@man~searching-for-manuals:~$ man hhzabvendj
+
+CHALLENGE(1)                                                       Challenge Commands                                                       CHALLENGE(1)
+
+NAME
+       /challenge/challenge - print the flag!
+
+SYNOPSIS
+       challenge OPTION
+
+DESCRIPTION
+       Output the flag when called with the right arguments.
+
+       --fortune
+              read a fortune
+
+       --version
+              output version information and exit
+
+       --hhzabv NUM
+              print the flag if NUM is 891
+
+AUTHOR
+       Written by Zardus.
+
+REPORTING BUGS
+       The repository for this dojo: <https://github.com/pwncollege/linux-luminarium/>
+
+SEE ALSO
+       man(1) bash-builtins(7)
+
+pwn.college                                                             May 2024                                                            CHALLENGE(1)
+~~~
+Through this I got to know that I had to invoke the --hhzabv argument and pass 891 in front of it to recieve the flag as done in a previous question.
+Did that and got the flag.
+~~~
+bash
+hacker@man~searching-for-manuals:~$ /challenge/challenge --hhzabv 891
+Correct usage! Your flag: pwn.college{8hhz9LU18a78bv9Q9Me1E23nN92.dZTM4QDL5AjN0czW}
+~~~
+
 
 
 ## Helpful Programs
