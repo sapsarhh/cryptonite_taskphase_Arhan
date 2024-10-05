@@ -298,9 +298,55 @@ ssh-entrypoint: /challenge/data.txt: No such file or directory
 pwn.college{kL5fbxuU-g2pRJvK_9-9e6seWaK.dVDM5QDL5AjN0czW}
 ~~~
 
-## Duplicating piped data with thee
+## Duplicating piped data with the tee
+This module taught me about a very important feature in linux, well it really cant be called a feature more like a command which is extremely helpful.
+The command which im talking about is the tee command, which is used as an intercept between the data redirection when piping is being done.
+the tee command can display any errors which are encountered when data redirection is being done between 2 files.
+So it is highly useful as if some error is encountered in the process of piping the terminal wont display what went wrong without the tee command, with the help of tee command the error would be displayed and then can be debugged easily.
+In the question I was instructed to use tee and firstly figure out what could be wrong with the redirection of data from /challenge/pwn to /challenge/college.
+Firstly i tried piping without the use of tee command which obviously didnt work, then i tried the tee command which for some reason kept giving me an error.
+~~~
+bash
+hacker@piping~duplicating-piped-data-with-tee:/$ /challenge/pwn | /challenge/college
+Processing...
+The input to 'college' does not contain the correct secret code! This code
+should be provided by the 'pwn' command. HINT: use 'tee' to intercept the
+output of 'pwn' and figure out what the code needs to be.
+hacker@piping~duplicating-piped-data-with-tee:/$ /challenge/pwn | tee /challenge/college
+Processing...
+You are trying to use 'tee' *instead* of /challenge/college. Use it *between*
+/challenge/pwn and /challenge/college!
+You must pipe the output of /challenge/pwn into /challenge/college (or 'tee'
+for debugging).
+/challenge/pwn | tee pwn | /challenge/college
+Processing...
+The input to 'college' does not contain the correct secret code! This code
+should be provided by the 'pwn' command. HINT: use 'tee' to intercept the
+output of 'pwn' and figure out what the code needs to be.
+~~~
+Then after some tries I realized that i had to read the pwn file to figure out what could be wrong with it, which returned me this:
+~~~
+bash
+hacker@piping~duplicating-piped-data-with-tee:/$ cat pwn
+Usage: /challenge/pwn --secret [SECRET_ARG]
+SECRET_ARG should be "gNb6Lfo6"
+~~~
+after obtaining the above result I ran the following commands and got the flag:
+~~~
+bash
+hacker@piping~duplicating-piped-data-with-tee:/$ /challenge/pwn --secret gNb6Lfo6
+Processing...
+You must pipe the output of /challenge/pwn into /challenge/college (or 'tee'
+for debugging).
+hacker@piping~duplicating-piped-data-with-tee:/$ /challenge/pwn --secret gNb6Lfo6 | /challenge/college
+Processing...
+Correct! Passing secret value to /challenge/college...
+Great job! Here is your flag:
+pwn.college{gNb6Lfo6gF_xmc0SxJzAvi4riYP.dFjM5QDL5AjN0czW}
+~~~
 
 
+## Writing to multiple programs
 
 
  
