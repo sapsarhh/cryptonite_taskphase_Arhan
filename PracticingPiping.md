@@ -296,6 +296,9 @@ ssh-entrypoint: /challenge/data.txt: No such file or directory
 [PASS] You have passed the checks on the process on the other end of my stderr!
 [PASS] Success! You have satisfied all execution requirements.
 pwn.college{kL5fbxuU-g2pRJvK_9-9e6seWaK.dVDM5QDL5AjN0czW}
+~~~
+
+## Duplicating piped data with thee
 
 
 
