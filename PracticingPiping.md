@@ -171,5 +171,26 @@ hacker@piping~redirecting-errors:~$ cat myflag
 ~~~
 
 ## Redirecting Input
+In this submodule I learnt about the < operator which is basically the reverse process of the '>' operator.
+The > operator is used to redirect output whilst < operator is used to redirect input
+Lets say there is a file krypt and I want to write data in it so I can perform this task by the < operator by passing the command krypt < thisisfuntome
+This redirected the input and is now stored in krypt so now if I read the cat file it would return thisisfuntome.
+In the question I was required to redirect the input PWN to /challenge/run but before that I had to redirect COLLEGE to PWN.
+~~~
+bash
+hacker@piping~redirecting-input:~$ echo COLLEGE > PWN
+hacker@piping~redirecting-input:~$ cat PWN
+COLLEGE
+hacker@piping~redirecting-input:~$ /challenge/run < PWN
+Reading from standard input...
+Correct! You have redirected the PWN file into my standard input, and I read
+the value 'COLLEGE' out of it!
+Here is your flag:
+pwn.college{cnsyJR8Gyh3Wfdg_vdB0PvJ8yQb.dBzN1QDL5AjN0czW}
+~~~
+
+
+ 
+
 
 
