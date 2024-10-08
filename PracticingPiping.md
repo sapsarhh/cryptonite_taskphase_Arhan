@@ -347,6 +347,67 @@ pwn.college{gNb6Lfo6gF_xmc0SxJzAvi4riYP.dFjM5QDL5AjN0czW}
 
 
 ## Writing to multiple programs
+In this module firstly learnt how to duplicate data to different files with the tee command.
+using the echo command and pairing that up with the tee command, the same data can be redirected to two different files.
+For example if I pass echo krypt | tee crypto > nite
+what this does is firstly pipes the text krypt into the file crypto and then redirects it into the file nite so if I were to read from the files, crypto and nite using the cat command they would both give me the same output which is krypt.
+Then I learnt about process substitution, which means that using the >(x) operator data can be transmitted to different files like done above with the tee command.
+Now the x can be anything ranging from a file to even an absolute path as linux can treat even the file path as a program if used with the >() operator and hence redirect data to it in the same way as done with a file.
+also learn about the >(rev) command which can redirect data and reverse its order.
+for example if i were to pass echo nite | tee >(rev), this would firstly give me the stdout using the tee command but then reverse it due to the rev command being present.
+output: 
+nite
+etin
+Now keeping these in mind, I went onto the question in which I was required to redirect one file's output as input to two files.
+Firstly I tried doing it without the >() for some reason which didnt do it correctly of course as the data wasnt being duplicated but I realized that and corrected it.
+~~~
+bash
+/challenge/hack | tee >(/challenge/the)
+This secret data must directly and simultaneously make it to /challenge/the and
+/challenge/planet. Don't try to copy-paste it; it changes too fast.
+2113915077577315077
+hacker@piping~writing-to-multiple-programs:~$ /challenge/hack | tee >(/challenge/the) > /challenge/planet
+ssh-entrypoint: /challenge/planet: Permission denied
+Are you sure you're properly redirecting input into '/challenge/the'?
+hacker@piping~writing-to-multiple-programs:~$ /challenge/hack | tee >(/challenge/the) >(/challenge/planet)
+This secret data must directly and simultaneously make it to /challenge/the and
+/challenge/planet. Don't try to copy-paste it; it changes too fast.
+19757267602381827600
+Congratulations, you have duplicated data into the input of two programs! Here
+is your flag:
+pwn.college{QSYVKfu7WstqFM8bMQdkuc4pcaQ.dBDO0UDL5AjN0czW}
+~~~
+actually when the terminal gave me the error alongside the statement are you redirecting it properly, that was basically the answer for me and i realized where I was going wrong. Hence I corrected the error by using the >() as it was supposed to be duplicated and got the flag.
+
+## Split-Piping stderr and stdout
+Now the question done previously came of huge help during this question because the >() was supposed to be used here as well, because I am simultaneously redirecting stdout from one file and stderr'ing it into the other file.
+The only difference here was that I was supposed to redirct the stderr from one file to the other hence 2>() operator was to be used.
+here firstly I was supposed to redirect stderr from the 'hack' file to 'the' file and then redirect the stdout to the 'planet' file.
+keeping the concepts of the previous question in mind, this wasnt too bad.
+~~~
+bash
+ /challenge/hack 2>(/challenge/the) >(/challenge/planet)
+It looks like you passed something like '>(something)' as an *argument* to
+/challenge/hack rather than redirecting /challenge/hack's out/error to
+'>(something)'. Remember, 'cmd1 >(cmd2)' does *NOT* redirect output of cmd1;
+rather, it'll run cmd2, hook a file up to its standard input, and pass that
+file as an argument to cmd1. If you want to redirect cmd1's output into that
+file, you will need to do: 'cmd1 > >(cmd2)', which is equivalent to 'cmd1 |
+cmd2'.
+You must redirect my standard output into '/challenge/planet'!
+You must redirect my standard error into '/challenge/the'!
+Are you sure you're properly redirecting /challenge/hack's standard output into
+'/challenge/planet'?
+Are you sure you're properly redirecting /challenge/hack's standard error into
+'/challenge/the'?
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack 2> >(/challenge/the) > >(/challenge/planet)
+Congratulations, you have learned a redirection technique that even experts
+struggle with! Here is your flag:
+pwn.college{sokaSjZpRH-yNqs6ZHn486lG-eO.dFDNwYDL5AjN0czW}
+~~~
+here when I passed the uppermost command it displayed me an error which again was kind of a clue on how to properly redirect the error and input as I was first required to redirect the stderr using the 2> operator but at the same time redirecting it into the file using >() command so that it can be duplicated as it was supposed to be done with 2 files.
+hence following that I passed in the same line > >() operator as again input was supposed to be redirected and duplicated at the same time.
+
 
 
  
