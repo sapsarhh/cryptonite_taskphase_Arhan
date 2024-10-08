@@ -380,9 +380,9 @@ pwn.college{QSYVKfu7WstqFM8bMQdkuc4pcaQ.dBDO0UDL5AjN0czW}
 actually when the terminal gave me the error alongside the statement are you redirecting it properly, that was basically the answer for me and i realized where I was going wrong. Hence I corrected the error by using the >() as it was supposed to be duplicated and got the flag.
 
 ## Split-Piping stderr and stdout
-Now the question done previously came of huge help during this question because the >() was supposed to be used here as well, because I am simultaneously redirecting stdout from one file and stderr'ing it into the other file.
+Now the question done previously came of huge help during this question because the >() was supposed to be used here as well, because I am simultaneously redirecting stderr from one file and stdoutt'ing it into the other file.
 The only difference here was that I was supposed to redirct the stderr from one file to the other hence 2>() operator was to be used.
-here firstly I was supposed to redirect stderr from the 'hack' file to 'the' file and then redirect the stdout to the 'planet' file.
+here I was supposed to redirect stderr from the 'hack' file to 'the' file and then redirect the stdout to the 'planet' file.
 keeping the concepts of the previous question in mind, this wasnt too bad.
 ~~~
 bash
