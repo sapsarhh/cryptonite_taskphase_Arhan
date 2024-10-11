@@ -247,4 +247,25 @@ Learnt how to obtain the error code of some specific command passed in the linux
 The error code can be obtained by the $? operator which can either return 0 or some non zero value(most commonly 1).
 where 0 is returned if some process is successfully run but if it doesnt run then the error code is 1 or some non zero value as said above.
 this is actually in contrast to coding languages, because if a condition is true in a langauge then it returns the value 1 and if false then 0.
-anyways coming back to the question I was required to
+anyways coming back to the question I was required to print the error code of the get-code file and use that error code with submit-code.
+on a sidenote i found the $? very fascinatinng because it is so dynamic in the sense that the error code changes after every command inputted in the terminal, this can be seen below in the code as I made a mistake due to this.
+~~~
+bash
+ /challenge/get-code
+Exiting with an error code!
+hacker@processes~process-exit-codes:~$ $?
+ssh-entrypoint: 182: command not found
+hacker@processes~process-exit-codes:~$ echo $?
+127
+ /challenge/submit-code 127
+Incorrect... Make sure to use $? immediately after running /challenge/get-code.
+Your shell will overwrite the $? variable with the exit value of any other
+command you run!
+hacker@processes~process-exit-codes:~$ /challenge/get-code
+Exiting with an error code!
+hacker@processes~process-exit-codes:~$ echo $?
+41
+hacker@processes~process-exit-codes:~$ /challenge/submit-code 41
+CORRECT! Here is your flag:
+pwn.college{8JoARowdH9ShOHR23Y_g6FAGrMA.dljN4UDL5AjN0czW}
+~~~
