@@ -118,6 +118,25 @@ ssh-entrypoint: /challenge/run: Permission denied
 ~~~
 
 ## Permission Tweaking Practice
+## Permission Setting Practice
+
+## The SUID Bit
+In this module I learnt about the SUID(set user) bit which is used to make a specific file readable or exectuable basically give the user the all permissions of that file to the user which suid'd to just as that of the root user.
+This is an alternative to sudo'ing as sudo changes the whole user and the user can access all the files as they become the root user themselves but here they only become the root user for only one specific file.
+the SUID bit for a file can be set with the chmod command with the u+s command.
+In this question I had to set the /challenge/getroot to the u+s mode so that the hacker user can access the file in the same way that the root user does.
+then I had to run the file so that I could cat the flag.
+~~~
+bash
+chmod u+s /challenge/getroot
+hacker@permissions~the-suid-bit:~$ cat /flag
+cat: /flag: Permission denied
+hacker@permissions~the-suid-bit:~$ /challenge/getroot
+SUCCESS! You have set the suid bit on this program, and it is running as root!
+Here is your shell...
+root@permissions~the-suid-bit:~# cat /flag
+pwn.college{IvUq5ENfeesjiPskWkNvTA771WD.dNTM2QDL5AjN0czW}
+~~~
 
 
 
