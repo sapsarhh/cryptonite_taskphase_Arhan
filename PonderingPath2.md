@@ -31,3 +31,18 @@ The flag is still there! I might as well give it to you!
 pwn.college{Ql7P-53az63OvEP-GCNGIu9JTP9.dZzNwUDL5AjN0czW}
 ~~~
 in the above output it can be seen, that the rm command doesnt work.
+
+## Setting PATH
+this one is described as doing something useful with the PATH variable and actually setting the path variable to some directory so that when that directory is invoked some specific file can be run.
+in the question I have to set the path variable to the directory given so that on invoking /challenge/run file the win command is exeuted so that the flag can be displayed.
+~~~
+bash
+hacker@path~setting-path:~$ PATH="/challenge/more_commands/"
+hacker@path~setting-path:~$ /challenge/run
+Invoking 'win'....
+Congratulations! You properly set the flag and 'win' has launched!
+pwn.college{YDGh5s50kBDf4-Xq1SHJ3UXLNio.dVzNyUDL5AjN0czW}
+~~~
+
+## 
+
