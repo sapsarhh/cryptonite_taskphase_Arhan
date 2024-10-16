@@ -251,4 +251,5 @@ Dq^B
 Qv"Y
 fk)B
 ~~~
+actually the strings command gave me the human-readable string output which ultimately gave me the password.
 D9========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey when I saw this in the above data it sparked that this would be the password.
