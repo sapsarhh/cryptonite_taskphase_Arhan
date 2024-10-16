@@ -1,1 +1,254 @@
 # Level 9
+I wont even lie the command which I used in this challenge, I wasnt expecting it to work but it did work somehow, Ill take the win.
+So the question told me that there is a human readable string which is preceded by = characters.
+~~~
+bash
+bandit9@bandit:~$ cat data.txt | sort | strings
+9+`1
+_$>S
+J]epm
+pfT8
+^8NSs
+2>X)
+db*Nz
+cc5M
+`oaT
+"}@>bn
+O(k$N
+zw[@
+!a5^
+9Z8]
+sqEAj
+D)A'r
+an      g
+'3pp(
+G>Wu}
+!S:%_
+yG@q-
+h!]v
+r>)1
+v0i)b
+B:PyZ
+#0/u
+uJw&
+&kIIJ
+b4glu
+]NJR
+ %uW
+|r_s
++)&_i
+WDp8
+u"o~
+p(67
+WZ+(
+?o&g
+k        `
+~o=0
+D#?P
+,`Cd80
+UB;N
+U@j?
+p\l=
+te24
+UNvlE
+qQ>Gu
+!6D(
+J?,2
+IEO*
+POl%
+}========== the
+oH`w
+7=oc
+_N]d
+3>\kGG
+drfx
+U%^6
+:'3z
+!$L&
+Qm1U
+E:zr0
+7!`tcT7
+Gp(2
+FoOvx
+hF|W
+3edvE%
+I`8l
+fL'~_
+a       Z
+DT[N
+z9wo
+3W`j
+D+io?
+R<+{
+)DtZ
+)>tgdu
+Y>v4
+Czmnf&v
+TO"'
+~fDV3========== is
+5bBK
+4Rl_7gH
+F 4Cq
+#61QW
+hqI.X
+3JprD========== passwordi
+ba+D
+n.i3m
+GMKB
+#s}t
+K>]`c
+sn)>
+v8jB
+"x|L
+}ZIg
+r~rB
++_38
+Z@bj:
+}UQB
+uP6{
+hu%lLj
+F>x!&
+@99F
+H"hU
+/uP_
+(mhY
++6,hH
+4vjm4
+q09B
+j!ZL
+jX09
+dyaE
+F#X[
+7$'0'T
+^^^K
+Y5}|
+9g_$
+^h#%EG
+        Fq/
+/OZ[4'
+|M '
+{QMrWv
+8:%     XD
+zVw-
+Q$QBW
+Q{h%w
+69}=
+?uPsH
+@WG|
+%"=Y
+Pew%J
+&3[2
+*u;(%P
+dA`d
+|>,p
+oY%\
+JB]H:|v
+o|)s
+z_b^
+HCg\@0
+z8N_-Z`
+v7\y
+s>|5
+t1QAk
+6+$N
+g+;Y
+ Uum
+D9========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+imZ?L
+m!}B
+| Zd
+~de=
+.sjd
+        qT\
+>T`q
+Ylyg<
+H`U     ^
++v J
+4(clh~U
+#R^g
+Xgz|
+)oRj
+7`4(WG
+& `T
+_eOdY
+s(-Qv
+3k=fQ
+usTR
+Nyz3wI
+%Xi-
+Qobt
+6Cjk
+|:H5
+I;j@
+uu>@    ;
+KrQ!
+$V8a
+{vl0pup
+AWwyxY
+j(ue
+X<'j
+<HR]/
+-c5N
+xHp\
+wS>n
+^B~9
+Q!vw
+'5jl
+. \,
+66exg
+h^Ad
+_#@k
+N=~[!N
+-VSe
+a0XJ
+3;8_
+zA=?0j
+b}M>s
+lKUO
+U>QkM:,V
+FvkY
+Z)w,
+u1Ebi
+&x(>G
+.`EQ
+w>}x
+D%(f
+1#4!9
+:79(
+oxGz$W~"
+>^?X
+;c<Q=.dEXU!
+0V[1
+d_hnA;
+JH|)
+qi{|p
+Yy6]
+BWu7
+qC(=
+"t<2-u
+i)W5
+[^?_
+M<ls%
+"kz8I
+zP=
+6o+u
+piUv
+a*xX$
+%!~D
+xfvO
+Oq.g
+(p^A
+-45c
+^w#K
+FP&!
+5Gfy
+=tZ~07
+^6Og
+Tx+X
+rs2J
+ -M8<
+Dq^B
+Qv"Y
+fk)B
+~~~
+D9========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey when I saw this in the above data it sparked that this would be the password.
