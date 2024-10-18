@@ -3,7 +3,7 @@ In this level I had to change my port to 30001 but with a catch, which was that 
 basically openssl encryption of course ensures more security and is a process of converting the text to an an encrypted text which has to be deciphered in order to get access over.
 so firstly I had to of course apply some hit and trial and guess how the openssl command would be used.
 my first guess was this which did nothing and gave me an error---->nc localhost 30001 openssl
-so then I had to research how to encrypt a connection using ssl which landed me with the following result:
+so then I had to research how to encrypt a connection using ssl which landed me with the following result, reference------> https://serverfault.com/questions/476068/can-netcat-talk-to-an-encrypted-port and also https://serverfault.com/questions/102032/connecting-to-https-with-netcat-nc
 ~~~
 bash
 bandit14@bandit:~$ openssl s_client localhost:30001
